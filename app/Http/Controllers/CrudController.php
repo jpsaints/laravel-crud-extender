@@ -16,27 +16,27 @@ class CrudController extends Controller
 
 	public $primary_key = 'id';
 
-  	public $table = '';
+  public $table = '';
 
 	public $rules = [];
 
 	public $errors = [];
 
-  	public $messages = [
+  public $messages = [
 
-   	 'name' => 'required'
+ 	 'name' => 'required'
 
-  	];
+	];
 
-  	public $table_columns;
+  public $table_columns;
 
 	public function __construct () {
-		// set App\Model to $this->model
+		  // set App\Model to $this->model
 	    $this->model = 'App\\' . $this->model;
 	    $this->model = new $this->model();
 
 	    // Get the column listing for a given table
-      	$this->table_columns = Schema::getColumnListing( $this->table );
+      $this->table_columns = Schema::getColumnListing( $this->table );
 
 	}
 
@@ -62,11 +62,11 @@ class CrudController extends Controller
 	}
 
 	/**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request){
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index(Request $request){
     	$this->request = $request;
    		$data = $this->get();
 
