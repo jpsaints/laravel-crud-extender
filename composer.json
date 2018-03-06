@@ -1,0 +1,19 @@
+{
+    "name": "jpsaints/laravel-crud-extender",
+    "description": "A simple crud extender for your Laravel API app...",
+    "type": "Files",
+    "require": {
+        "laravel/framework": "5.6.*"
+    },
+    "authors": [
+        {
+            "name": "John Paolo Santos",
+            "email": "santosjohnpaolo@yahoo.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "jpsaints\\": "src"
+        }
+    }
+}
