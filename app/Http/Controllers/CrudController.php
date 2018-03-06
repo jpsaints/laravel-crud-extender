@@ -12,21 +12,20 @@ use \Illuminate\Http\Request;
 class CrudController extends Controller
 {	
 
-	public $model;
+  public $model;
 
-	public $primary_key = 'id';
+  public $primary_key = 'id';
 
   public $table = '';
 
-	public $rules = [];
+  public $rules = [];
 
-	public $errors = [];
+  public $errors = [];
 
   public $messages = [ 'name' => 'required' ];
 
-  public $table_columns;
 
-	public function __construct () {
+  public function __construct () {
 		  // set App\Model to $this->model
 	    $this->model = 'App\\' . $this->model;
 	    $this->model = new $this->model();
@@ -40,7 +39,7 @@ class CrudController extends Controller
 	 * @param  mixed $model 
 	 * @return $model 
 	 */
-	public function preList($model){
+  public function preList($model){
     	$model->whereNull('deleted_at');
       
       return $model;
@@ -50,7 +49,7 @@ class CrudController extends Controller
      * Get all the data
      * @return object 
      */
-	public function get() {
+  public function get() {
 		$model = $this->model;
 		$model = $this->preList($model);
 
