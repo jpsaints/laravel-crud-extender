@@ -22,11 +22,7 @@ class CrudController extends Controller
 
 	public $errors = [];
 
-  public $messages = [
-
- 	 'name' => 'required'
-
-	];
+  public $messages = [ 'name' => 'required' ];
 
   public $table_columns;
 
@@ -37,7 +33,6 @@ class CrudController extends Controller
 
 	    // Get the column listing for a given table
       $this->table_columns = Schema::getColumnListing( $this->table );
-
 	}
 
 	/**
@@ -47,18 +42,19 @@ class CrudController extends Controller
 	 */
 	public function preList($model){
     	$model->whereNull('deleted_at');
-        return $model;
-    }
+      
+      return $model;
+  }
 
     /**
      * Get all the data
      * @return object 
      */
 	public function get() {
-		
 		$model = $this->model;
 		$model = $this->preList($model);
-    	return $model->get();
+
+    return $model->get();
 	}
 
 	/**
@@ -182,7 +178,7 @@ class CrudController extends Controller
 
         $data['data'] = $this->model->where($this->primary_key, $id)->first();
 
-  		$data['message'] = 'Record is successfully updated.';
+  		  $data['message'] = 'Record is successfully updated.';
    	}
 
     $data['errors'] = $errors ? $errors : [];
@@ -210,8 +206,8 @@ class CrudController extends Controller
    * @param  \App\Test  $test
    * @return \Illuminate\Http\Response
    */
-    public function destroy($id)
-    {	
+  public function destroy($id)
+  {	
    		$data = [];
 
    		$this->delete($id);
@@ -226,11 +222,10 @@ class CrudController extends Controller
    		$data['message'] = 'You have successfully deleted the record';
 
    		return response()->json($data)->withHeaders([
-	      'Access-Control-Allow-Origin' => '*', 
-	      'Access-Control-Allow-Headers' => 'X-Requested-With, Content-Type, Accept, Origin, Authorization',
-	      'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS'
-	    ]);
-
-    }
+        'Access-Control-Allow-Origin' => '*', 
+        'Access-Control-Allow-Headers' => 'X-Requested-With, Content-Type, Accept, Origin, Authorization',
+        'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS'
+      ]);
+  }
 
 }
