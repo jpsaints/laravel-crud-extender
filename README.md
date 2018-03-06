@@ -1,1 +1,3 @@
 # laravel-crud-extender
+
+A simple crud extender for your Laravel API app...
